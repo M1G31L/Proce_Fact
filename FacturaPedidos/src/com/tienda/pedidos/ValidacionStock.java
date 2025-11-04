@@ -9,5 +9,7 @@ package com.tienda.pedidos;
  * @author ASUS
  */
 public class ValidacionStock {
-    
+    public boolean validarCantidad(Producto producto, int cantidad) {
+        return cantidad > 0 && producto.getStock() >= cantidad;
+    }
 }

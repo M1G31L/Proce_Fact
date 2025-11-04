@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 package com.tienda.pedidos;
 
@@ -8,6 +8,7 @@ package com.tienda.pedidos;
  *
  * @author ASUS
  */
-public class FacturaService {
-    
+public interface FacturaService {
+    void generarFactura(String cliente, String producto, int cantidad, double subtotal, double igv, double total);
 }
+    
