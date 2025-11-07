@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.tienda.pedidos;
 
-/**
- *
- * @author ASUS
- */
+
 public class Pedido {
     private String cliente;
     private Producto producto;
@@ -24,7 +18,7 @@ public class Pedido {
         this.igv = igv;
         this.total = total;
        }
-    public String getClient(){
+    public String getCliente(){
         return cliente;
     }
     public Producto getProducto(){
@@ -39,8 +33,10 @@ public class Pedido {
     public double getTotal(){
         return total;
     }
+    public int getCantidad() {
+        return cantidad;
+    }
+}
 
-    String getCliente() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    }
+
+    

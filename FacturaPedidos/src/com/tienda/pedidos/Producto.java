@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.tienda.pedidos;
 
 /**
@@ -9,8 +6,8 @@ package com.tienda.pedidos;
  * @author ASUS
  */
 public class Producto {
-    private final String nombre;
-    private final double precio;
+    private String nombre;
+    private double precio;
     private int stock;
 
     public Producto(String nombre, double precio, int stock) {

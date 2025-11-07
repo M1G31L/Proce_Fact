@@ -10,4 +10,14 @@ public class LegacyBillingSystem {
         System.out.println("Cantidad: " + cantidad);
         System.out.println("Monto Total: " + monto);
     }
+
+    Factura generarFacturaAntigua(Pedido pedido) {
+    createInvoice(
+        pedido.getCliente(),
+        pedido.getProducto().getNombre(),
+        pedido.getCantidad(),
+        pedido.getTotal()
+    );
+    return null; 
+}
 }

@@ -29,5 +29,6 @@ public class Factura {
         System.out.println("Subtotal: " + subtotal);
         System.out.println("IGV: " + igv);
         System.out.println("Total: " + total);
+        System.out.println("------------------------------");
     }
 }
