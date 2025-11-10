@@ -1,7 +1,5 @@
 package com.tienda.pedidos;
-/*
- * @author ASUS
- */
+
 public class LegacyBillingSystem {
     public void createInvoice(String nombreCliente, String producto, int cantidad, double monto) {
         System.out.println("Factura creada en sistema antiguo:");
@@ -10,14 +8,20 @@ public class LegacyBillingSystem {
         System.out.println("Cantidad: " + cantidad);
         System.out.println("Monto Total: " + monto);
     }
-
-    Factura generarFacturaAntigua(Pedido pedido) {
+ public Factura generarFacturaAntigua(Pedido pedido) {
+    
     createInvoice(
         pedido.getCliente(),
         pedido.getProducto().getNombre(),
         pedido.getCantidad(),
         pedido.getTotal()
     );
-    return null; 
-}
-}
+    return new Factura(
+            pedido.getCliente(),
+            pedido.getProducto().getNombre(),
+            pedido.getSubtotal(),
+            pedido.getIgv(),
+            pedido.getTotal()
+        );
+    }
+}   
