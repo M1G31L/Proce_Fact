@@ -1,7 +1,7 @@
 
 package com.tienda.pedidos;
 
-public class PedidoFacade {
+public class PedidoFacade extends Sujeto{
     private ValidacionStock validacionStock;
     private CalculoImpuestos calculoImpuestos;
     private RegistroPedido registroPedido;
@@ -36,10 +36,49 @@ public class PedidoFacade {
             
 
             Pedido pedido = new Pedido(cliente, producto, cantidad, subtotal, igv, total);
-            registroPedido.registrar(pedido);
+            
+            Thread hiloPedido = new Thread(() -> {
+            System.out.println("Hilo Pedido__Procesando pedido...");
+            try {
+                Thread.sleep(1000);
+                registroPedido.registrar(pedido);
+                notificar("Pedido registrado correctamente para " + cliente);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+            Thread hiloFactura = new Thread(() -> {
+            System.out.println("Hilo Factura__Generando factura...");
+            try {
+                Thread.sleep(2500);
+                Factura factura = facturaService.generarFactura(pedido);
+                factura.mostrarFactura();
+                notificar("Factura generada para " + cliente);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+            Thread hiloNotificacion = new Thread(() -> {
+            System.out.println("Hilo Notificaciones__Enviando notificaciones...");
+            try {
+                Thread.sleep(800);
+                producto.reducirStock(cantidad);
+                notificar("Notificacion enviada y stock actualizado del producto " + producto.getNombre());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+             hiloPedido.start();
+             hiloFactura.start();
+             hiloNotificacion.start();
+             try {
+                hiloPedido.join();
+                hiloFactura.join();
+                hiloNotificacion.join();
+             } catch (InterruptedException e) {
+                e.printStackTrace();
+        }
 
-            Factura factura = facturaService.generarFactura(pedido);
-            factura.mostrarFactura();
-        } 
-      
+        System.out.println("Pedido procesado correctamente para " + cliente + "\n");
+    }
 }

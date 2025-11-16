@@ -1,13 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.tienda.pedidos;
 
-/**
- *
- * @author ASUS
- */
-public class ClienteObservador {
-    
+public class ClienteObservador implements Observador {
+    private String nombre;
+            
+    public ClienteObservador(String nombre) {
+        this.nombre = nombre;
+    }
+    @Override
+    public void actualizar(String mensaje) {
+        System.out.println("Cliente " + nombre + ": " + mensaje);
+    }  
 }

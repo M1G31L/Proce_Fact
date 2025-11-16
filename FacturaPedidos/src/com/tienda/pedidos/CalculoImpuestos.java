@@ -1,7 +1,5 @@
 package com.tienda.pedidos;
-/*
- * @author ASUS
- */
+
 public class CalculoImpuestos {
     private static final double IGV = 0.18;
 

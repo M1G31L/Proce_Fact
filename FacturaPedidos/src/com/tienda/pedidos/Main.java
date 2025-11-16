@@ -10,13 +10,15 @@ public class Main {
         LegacyBillingSystem legacy = new LegacyBillingSystem();
         FacturaService facturaService = new FacturaAdapter(legacy);
         PedidoFacade pedidoFacade = new PedidoFacade(facturaService);
+        pedidoFacade.agregarObservador(new LogEventosObservador());
+        pedidoFacade.agregarObservador(new InventarioObservador());
 
         Scanner sc = new Scanner(System.in);
-
         while (true) {
             try {
                 System.out.print("\nCliente: ");
                 String cliente = sc.nextLine().trim();
+                pedidoFacade.agregarObservador(new ClienteObservador(cliente));
                 System.out.print("Producto (Laptop / Camara / Teclado): ");
                 String productoNombre = sc.nextLine().trim();
                 Producto productoSeleccionado = null;
