@@ -24,19 +24,15 @@ public class PedidoFacade extends Sujeto{
             if (!validacionStock.validarCantidad(producto, cantidad)) {
             System.out.println("No hay suficiente stock.");
             return;
-        }
-            
+        }      
             double subtotal = calculoImpuestos.calcularSubtotal(producto, cantidad);
             if (impuestoStrategy == null) {
             System.out.println("No se seleccionó estrategia de impuestos. Se aplicará IGV por defecto.");
             impuestoStrategy = new IGV18Strategy();
         }
-            double igv = calculoImpuestos.calcularImpuesto(subtotal);
+            double igv = impuestoStrategy.calcular(subtotal);
             double total = subtotal + igv;
-            
-
             Pedido pedido = new Pedido(cliente, producto, cantidad, subtotal, igv, total);
-            
             Thread hiloPedido = new Thread(() -> {
             System.out.println("Hilo Pedido__Procesando pedido...");
             try {
