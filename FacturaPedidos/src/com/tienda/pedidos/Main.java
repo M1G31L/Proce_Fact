@@ -1,5 +1,12 @@
 package com.tienda.pedidos;
+import models.Producto;
+import strategy.IGV18Strategy;
+import strategy.ExoneradoStrategy;
 import java.util.Scanner;
+import com.tienda.pedidos.FacturaAdapter;
+import core.FacturaService;
+import com.tienda.pedidos.LegacyBillingSystem;
+
 
 public class Main {
     public static void main(String[] args) {

@@ -1,5 +1,8 @@
 package com.tienda.pedidos;
 
+import models.Pedido;
+import models.Factura;
+
 public class LegacyBillingSystem {
     public void createInvoice(String nombreCliente, String producto, int cantidad, double monto) {
         System.out.println("Factura creada en sistema antiguo:");

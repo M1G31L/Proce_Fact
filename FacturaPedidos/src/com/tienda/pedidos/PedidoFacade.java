@@ -1,13 +1,21 @@
 
 package com.tienda.pedidos;
 
+import core.FacturaService;
+import core.ImpuestoStrategy;
+import models.Pedido;
+import models.Producto;
+import models.Factura;
+import models.Sujeto;
+import strategy.IGV18Strategy;
+
 public class PedidoFacade extends Sujeto{
     private ValidacionStock validacionStock;
-    private CalculoImpuestos calculoImpuestos;
-    private RegistroPedido registroPedido;
-    private FacturaService facturaService;
+    private final CalculoImpuestos calculoImpuestos;
+    private final RegistroPedido registroPedido;
+    private final FacturaService facturaService;
     private ImpuestoStrategy impuestoStrategy;
-    private PedidoRepository pedidoRepository;
+    private final PedidoRepository pedidoRepository;
 
     public PedidoFacade(FacturaService facturaService) {
         this.validacionStock = new ValidacionStock();
@@ -30,6 +38,7 @@ public class PedidoFacade extends Sujeto{
             System.out.println("No se seleccionó estrategia de impuestos. Se aplicará IGV por defecto.");
             impuestoStrategy = new IGV18Strategy();
         }
+            //calcaular
             double igv = impuestoStrategy.calcular(subtotal);
             double total = subtotal + igv;
             Pedido pedido = new Pedido(cliente, producto, cantidad, subtotal, igv, total);

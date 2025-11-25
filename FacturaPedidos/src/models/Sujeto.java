@@ -1,5 +1,6 @@
 
-package com.tienda.pedidos;
+package models;
+import com.tienda.pedidos.Observador;
 import java.util.List;
 import java.util.ArrayList;
 

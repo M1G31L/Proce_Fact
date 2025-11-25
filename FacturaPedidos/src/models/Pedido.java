@@ -1,5 +1,7 @@
 
-package com.tienda.pedidos;
+package models;
+
+import models.Producto;
 
 
 public class Pedido {

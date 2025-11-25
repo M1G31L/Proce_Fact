@@ -4,6 +4,7 @@
  */
 package com.tienda.pedidos;
 
+import models.Pedido;
 import java.util.ArrayList;
 import java.util.List;
 /**

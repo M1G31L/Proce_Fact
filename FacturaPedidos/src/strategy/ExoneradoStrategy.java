@@ -1,5 +1,7 @@
 
-package com.tienda.pedidos;
+package strategy;
+
+import core.ImpuestoStrategy;
 
 public class ExoneradoStrategy implements ImpuestoStrategy {
     @Override

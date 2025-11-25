@@ -1,5 +1,7 @@
 
-package com.tienda.pedidos;
+package strategy;
+
+import core.ImpuestoStrategy;
 
 
 public class IGV18Strategy implements ImpuestoStrategy {

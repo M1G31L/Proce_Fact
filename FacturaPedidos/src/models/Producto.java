@@ -1,5 +1,5 @@
 
-package com.tienda.pedidos;
+package models;
 
 public class Producto {
     private String nombre;
